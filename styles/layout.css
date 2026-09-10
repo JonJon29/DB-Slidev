@@ -15,8 +15,12 @@ div {
   font-family: "DB Head", serif;
 }
 
-
-
+#slidev-goto-dialog .autocomplete-list {
+  display: none;
+}
+#slidev-goto-dialog:not(.-top-20) .autocomplete-list {
+  display: block;
+}
 h1 {
   @apply text-6xl leading-20;
   font-weight: bold;
