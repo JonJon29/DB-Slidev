@@ -1,4 +1,5 @@
 import { defineMermaidSetup } from "@slidev/types";
+import { watch } from "vue";
 import { isDark } from "@slidev/client/logic/dark.ts";
 
 /* DB brand palette — kept in sync with styles/layout.css */
@@ -15,6 +16,7 @@ const WHITE = "#FFFFFF";
  */
 const lightThemeVariables = {
   background: WHITE,
+  stroke: WHITE,
   primaryColor: WHITE,
   mainBkg: COLD_BLACK,
   primaryTextColor: WHITE,
@@ -27,7 +29,7 @@ const lightThemeVariables = {
   secondaryTextColor: COLD_BLACK,
   secondaryBorderColor: COLD_BLACK,
   tertiaryColor: COLD_BLACK,
-  tertiaryTextColor: COLD_BLACK,
+  tertiaryTextColor: WHITE,
   tertiaryBorderColor: DB_RED_700,
   clusterBkg: WHITE,
   clusterBorder: COLD_BLACK,
@@ -40,6 +42,7 @@ const lightThemeVariables = {
  */
 const darkThemeVariables: typeof lightThemeVariables = {
   background: COLD_BLACK,
+  stroke: WHITE,
   primaryColor: WHITE,
   mainBkg: WHITE,
   primaryTextColor: COLD_BLACK,
@@ -50,28 +53,45 @@ const darkThemeVariables: typeof lightThemeVariables = {
   titleColor: WHITE,
   secondaryColor: LILAC,
   secondaryTextColor: COLD_BLACK,
-  secondaryBorderColor: WHITE,
+  secondaryBorderColor: DB_RED,
   tertiaryColor: DB_RED_700,
-  tertiaryTextColor: WHITE,
+  tertiaryTextColor: COLD_BLACK,
   tertiaryBorderColor: DB_RED_300,
   clusterBkg: COLD_BLACK,
   clusterBorder: WHITE,
-  edgeLabelBackground: COLD_BLACK,
+  edgeLabelBackground: LILAC,
 };
 
 /**
- * Slidev's <Mermaid> component already switches the base theme
- * (`dark` vs `default`) live when dark mode is toggled. This setup adds
- * the matching DB brand `themeVariables` on top.
+ * `defineMermaidSetup` is evaluated exactly once — Slidev caches it in a
+ * singleton promise — so it can't return a fresh value per color scheme.
+ * Instead we return a *stable* object reference and mutate it in place
+ * whenever `isDark` changes.
  *
- * Note: the setup runs once, so with `colorSchema: auto` the variables
- * reflect the color scheme active at load time; a live toggle needs a
- * page reload to re-pick them. With a fixed `colorSchema: light | dark`
- * (the common case) it is always correct.
+ * Slidev's <Mermaid> component re-renders every diagram when `isDark`
+ * flips (its render effect reads `isDark.value`), and each re-render
+ * re-reads this object via `mermaid.initialize(...)`, so mutating it is
+ * what makes the switch live without a page reload. `flush: "sync"`
+ * guarantees the object is updated before the diagrams re-render.
  */
+const themeVariables = {
+  ...(isDark.value ? darkThemeVariables : lightThemeVariables),
+};
+
+watch(
+  isDark,
+  (dark) => {
+    Object.assign(
+      themeVariables, // pointer shenanigans: mutate the stable object reference
+      dark ? darkThemeVariables : lightThemeVariables,
+    );
+  },
+  { flush: "sync" },
+);
+
 export default defineMermaidSetup(() => {
   return {
     theme: "base",
-    themeVariables: lightThemeVariables,
+    themeVariables,
   };
 });
