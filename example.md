@@ -5,6 +5,9 @@ theme: ./
 #   light -> force plain white background, cold-black text
 #   dark  -> force cold-black background, white text
 colorSchema: auto
+# Confidentiality marker shown top-left on every slide.
+#   internal | confidential | strictly-confidential   (omit to hide)
+classification: internal
 ---
 
 # Slidev Theme Starter

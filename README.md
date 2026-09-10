@@ -47,6 +47,21 @@ Backgrounds and font colours are driven by the `--db-background` /
 `--db-foreground` CSS variables defined in `styles/layout.css`; override them
 there (or via `themeConfig`) to customise either scheme.
 
+## Confidentiality classification
+
+Add a `classification` headmatter option to stamp a marker in the top-left
+corner of every slide:
+
+<pre><code>---
+theme: db-theme
+classification: confidential   # internal | confidential | strictly-confidential
+---</code></pre>
+
+Omit the option to hide the marker. Its colour is the `--db-classification`
+token in `styles/layout.css` — `--db-red-300` in light mode, `--db-red-700` in
+dark mode. The marker lives in `components/Classification.vue`; `global-top.vue`
+is a one-line wrapper that renders it on every slide.
+
 ## Layouts
 
 This theme provides the following layouts:

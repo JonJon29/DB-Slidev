@@ -17,12 +17,19 @@
      navigation bar and follows the OS preference. */
   --db-background: #FFFFFF;
   --db-foreground: var(--cold-black);
+
+  /* Colour of the confidentiality classification marker (see
+     global-top.vue). Lighter red on the white light-mode background. */
+  --db-classification: var(--db-red-300);
 }
 
 html.dark {
   /* dark mode — inverted surface + text */
   --db-background: var(--cold-black);
   --db-foreground: #FFFFFF;
+
+  /* darker red against the cold-black dark-mode background */
+  --db-classification: var(--db-red-700);
 }
 
 /* `.slidev-page` wraps every slide (including the custom `cover` /
