@@ -6,7 +6,7 @@ import Schwelle from "../components/schwelle.vue";
 <template>
   <div id="main">
     <slot/>
-    <schwelle color="var(--db-red)" number-of-lines="12" height="50px" id="schwelle"/>
+    <schwelle color="var(--db-red)" number-of-lines="10" height="20px" id="schwelle" minLinewidth="1"/>
   </div>
 </template>
 
