@@ -29,6 +29,24 @@ theme: <b>db-theme</b>
 
 Learn more about [how to use a theme](https://sli.dev/guide/theme-addon#use-theme).
 
+## Dark mode
+
+The theme supports both colour schemes. Choose one per presentation with the
+`colorSchema` headmatter option:
+
+<pre><code>---
+theme: db-theme
+colorSchema: auto   # auto | light | dark
+---</code></pre>
+
+- `auto` – follow the OS preference and show a toggle in the navigation bar
+- `light` – plain white background with cold-black (`--cold-black`) text
+- `dark` – cold-black background with white text
+
+Backgrounds and font colours are driven by the `--db-background` /
+`--db-foreground` CSS variables defined in `styles/layout.css`; override them
+there (or via `themeConfig`) to customise either scheme.
+
 ## Layouts
 
 This theme provides the following layouts:
