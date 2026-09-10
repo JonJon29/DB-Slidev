@@ -9,6 +9,30 @@
   --db-red-300: #FA9090;
   --lilac: #AA99FF;
   --s-bahn-green: #408335;
+
+  /* Surface + text tokens — light mode (default).
+     Dark mode inverts them, see `html.dark` below.
+     The active mode is driven by Slidev's `colorSchema` headmatter
+     option (`light` | `dark` | `auto`); `auto` shows a toggle in the
+     navigation bar and follows the OS preference. */
+  --db-background: #FFFFFF;
+  --db-foreground: var(--cold-black);
+}
+
+html.dark {
+  /* dark mode — inverted surface + text */
+  --db-background: var(--cold-black);
+  --db-foreground: #FFFFFF;
+}
+
+/* `.slidev-page` wraps every slide (including the custom `cover` /
+   `default` layouts that don't emit `.slidev-layout`), so painting the
+   background and font colour here covers all layouts consistently. */
+.slidev-page,
+.slidev-layout {
+  background-color: var(--db-background);
+  color: var(--db-foreground);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 div {

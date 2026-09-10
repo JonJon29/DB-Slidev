@@ -1,5 +1,10 @@
 ---
 theme: ./
+# Dark mode is configurable per presentation:
+#   auto  -> follow the OS setting, show a toggle in the nav bar (default here)
+#   light -> force plain white background, cold-black text
+#   dark  -> force cold-black background, white text
+colorSchema: auto
 ---
 
 # Slidev Theme Starter
@@ -33,14 +38,15 @@ Hover on the bottom-left corner to see the navigation's controls panel
 
 ## Keyboard Shortcuts
 
-|     |     |
-| --- | --- |
-| <kbd>space</kbd> / <kbd>tab</kbd> / <kbd>right</kbd> | next animation or slide |
-| <kbd>left</kbd>  / <kbd>shift</kbd><kbd>space</kbd> | previous animation or slide |
-| <kbd>up</kbd> | previous slide |
-| <kbd>down</kbd> | next slide |
+|                                                      |                             |
+| ---------------------------------------------------- | --------------------------- |
+| <kbd>space</kbd> / <kbd>tab</kbd> / <kbd>right</kbd> | next animation or slide     |
+| <kbd>left</kbd> / <kbd>shift</kbd><kbd>space</kbd>   | previous animation or slide |
+| <kbd>up</kbd>                                        | previous slide              |
+| <kbd>down</kbd>                                      | next slide                  |
 
 ---
+
 layout: image-right
 image: https://cover.sli.dev
 ---
@@ -51,20 +57,21 @@ Use code snippets and get the highlighting directly!
 
 ```ts
 interface User {
-  id: number
-  firstName: string
-  lastName: string
-  role: string
+  id: number;
+  firstName: string;
+  lastName: string;
+  role: string;
 }
 
 function updateUser(id: number, update: Partial<User>) {
-  const user = getUser(id)
-  const newUser = { ...user, ...update }
-  saveUser(id, newUser)
+  const user = getUser(id);
+  const newUser = { ...user, ...update };
+  saveUser(id, newUser);
 }
 ```
 
 ---
+
 layout: center
 class: "text-center"
 ---
@@ -74,17 +81,18 @@ class: "text-center"
 [Documentation](https://sli.dev) / [GitHub Repo](https://github.com/slidevjs/slidev)
 
 ---
+
 layout: default
 ---
 
-# Test 
+# Test
 
-- Test 
-- Test 
+- Test
+- Test
 
 ---
 
-# Diagrams 
+# Diagrams
 
 ```mermaid
 graph LR
