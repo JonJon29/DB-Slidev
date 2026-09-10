@@ -5,6 +5,8 @@
   /* can be overrided by uses `themeConfig` option */
   --cold-black: #090F1B;
   --db-red: #FF002B;
+  --db-red-700: #9B000E;
+  --db-red-300: #FA9090;
   --lilac: #AA99FF;
   --s-bahn-green: #408335;
 }
