@@ -1,6 +1,6 @@
 # slidev-theme-db-theme
 
-[![NPM version](https://img.shields.io/npm/v/slidev-theme-db-theme?color=3AB9D4&label=)](https://www.npmjs.com/package/slidev-theme-db-theme)
+[GitHub Packages](https://github.com/JonJon29/DB-Slidev/packages) · `@jonjon29/slidev-theme-db-theme`
 
 A [Slidev](https://github.com/slidevjs/slidev) theme for the new Deutsche Bahn
 corporate design ("Neues Design"): the official colour palette, DB Neo Screen
@@ -14,11 +14,26 @@ rules. Reference: <https://marketingportal.extranet.deutschebahn.com/neues-desig
 
 ## Install
 
-Add the following frontmatter to your `slides.md`. Start Slidev then it will prompt you to install the theme automatically.
+The package is published to GitHub Packages. Add this scope mapping to your
+presentation project's `.npmrc` (keep any existing entries):
 
-<pre><code>---
-theme: <b>db-theme</b>
----</code></pre>
+```ini
+@jonjon29:registry=https://npm.pkg.github.com
+```
+
+Install the theme from your presentation directory:
+
+```sh
+npm install @jonjon29/slidev-theme-db-theme@0.0.0
+```
+
+Set the full scoped package name in the first frontmatter block of `slides.md`:
+
+```yaml
+---
+theme: '@jonjon29/slidev-theme-db-theme'
+---
+```
 
 Learn more about [how to use a theme](https://sli.dev/guide/theme-addon#use-theme).
 
@@ -28,18 +43,18 @@ Everything is set in the headmatter of the deck:
 
 ```yaml
 ---
-theme: db-theme
+theme: '@jonjon29/slidev-theme-db-theme'
 colorSchema: auto             # auto | light | dark
 classification: internal      # internal | confidential | strictly-confidential (omit to hide)
 themeConfig:
   sender: Systel              # "Logozusatz" next to the DB logo, "" for none
   logoColor: red              # red | white
-  logo: true                  # logo top-right on content slides
-  schwelle: true              # Schwelle on content slides: true | false | subtle | lilac | white
   footer: ""                  # footer text, bottom-left of content slides
-  pageNumbers: true           # "3 / 21" next to the footer text
-  progress: false             # true: progress strip instead of the Schwelle on content slides
   primary: "#EC0016"          # Slidev's primary colour (DB Red 500)
+defaults: # Defaults for Settings that can be changes per slide
+  logo: true                  # logo top-right on content slides
+  schwelle: true              # true | false | subtle | lilac | white
+  progress: true              # progress strip instead of the Schwelle (theme default: false)
 transition: db-slide | db-slide-back   # theme default; use `fade`, `none`, … to override
 ---
 ```
@@ -51,7 +66,7 @@ Per slide, the frontmatter can switch the frame elements off or change them:
 logo: false          # no logo on this slide
 schwelle: subtle     # grey Schwelle (or false | lilac | white | red)
 footer: false        # no footer / page number (or a string for this slide only)
-progress: true       # progress strip instead of the Schwelle on this slide
+progress: false      # override defaults: hide progress on this slide
 ---
 ```
 
@@ -61,7 +76,7 @@ The theme supports both colour schemes. Choose one per presentation with the
 `colorSchema` headmatter option:
 
 <pre><code>---
-theme: db-theme
+theme: '@jonjon29/slidev-theme-db-theme'
 colorSchema: auto   # auto | light | dark
 ---</code></pre>
 
@@ -79,7 +94,7 @@ Add a `classification` headmatter option to stamp a marker in the top-left
 corner of every slide (also in exports):
 
 <pre><code>---
-theme: db-theme
+theme: '@jonjon29/slidev-theme-db-theme'
 classification: confidential   # internal | confidential | strictly-confidential
 ---</code></pre>
 
@@ -97,7 +112,7 @@ progress strip, see `DbProgress`).
 | Layout | Use | Options (frontmatter) |
 | --- | --- | --- |
 | `cover` | Title slide: logo with sender, title block, animated Schwelle | `image`, `overlay: darken \| dark-gradient \| light-gradient \| none`, `animation: in \| loop \| none` |
-| `default` | Content slide with the frame | `logo`, `schwelle`, `footer` |
+| `default` | Content slide with the frame | `logo`, `schwelle`, `footer`, `progress` |
 | `center` | Content vertically centred | |
 | `intro` | Centred content without logo | |
 | `section` | Chapter divider on an inverted surface, big Schwelle | `number: "01"`, `inverted: false`, `animation` |
@@ -174,7 +189,7 @@ new one, the bars bulge as it passes and the passed ones turn red, with the
 timing of the clip (about 0.13 s per bar, at least 0.5 s, eased in and out).
 Hovering moves the pointer with the mouse, like the clip, and shows the slide
 number and title; a click goes to that slide.
-Opt in with `themeConfig.progress: true` (or `progress: true` on a slide): it
+Opt in with `defaults.progress: true` (or `progress: true` on a slide): it
 then takes the place of the small Schwelle bottom-right on the content slides. Props `current` and `total` override the deck values, e.g.
 `<DbProgress :current="7" :total="20" />`.
 Sizes come from `--db-progress-height`, `--db-progress-step`,
