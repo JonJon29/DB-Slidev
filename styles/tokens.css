@@ -1,0 +1,138 @@
+:root {
+  --db-white: #FFFFFF;
+  --db-black: #000000;
+
+  /* grey, 900 = Cold Black */
+  --db-grey-25: #F4F4F6;
+  --db-grey-50: #E0E1E4;
+  --db-grey-100: #C9CCD2;
+  --db-grey-200: #A3A8B2;
+  --db-grey-300: #848B9A;
+  --db-grey-400: #767E8F;
+  --db-grey-500: #6B7282;
+  --db-grey-600: #596273;
+  --db-grey-700: #454D5D;
+  --db-grey-800: #262C38;
+  --db-grey-900: #090F1B;
+
+  /* red, 400 = DB Red, 500 = UI red */
+  --db-red-25: #FEEFF0;
+  --db-red-50: #FFD7DC;
+  --db-red-100: #FDB7BF;
+  --db-red-200: #FC808C;
+  --db-red-300: #FA4A59;
+  --db-red-400: #FF002B;
+  --db-red-500: #EC0016;
+  --db-red-600: #C20012;
+  --db-red-700: #9E000F;
+  --db-red-800: #5F0009;
+  --db-red-900: #2A0000;
+
+  /* lilac, 200 = brand lilac */
+  --db-lilac-25: #F5F2FF;
+  --db-lilac-50: #E4DBFF;
+  --db-lilac-100: #CCBEFF;
+  --db-lilac-200: #AA99FF;
+  --db-lilac-300: #8E80D4;
+  --db-lilac-400: #8174BF;
+  --db-lilac-500: #7569AC;
+  --db-lilac-600: #62588F;
+  --db-lilac-700: #4E4770;
+  --db-lilac-800: #2C283C;
+  --db-lilac-900: #100F15;
+
+  /* green, 500 = S-Bahn */
+  --db-green-25: #E2F3E5;
+  --db-green-50: #D8EEDA;
+  --db-green-100: #CCE7CC;
+  --db-green-200: #BDDBB9;
+  --db-green-300: #8CBC80;
+  --db-green-400: #66A558;
+  --db-green-500: #408335;
+  --db-green-600: #2A7230;
+  --db-green-700: #165C27;
+  --db-green-800: #154A26;
+  --db-green-900: #0C3B1B;
+
+  --cold-black: var(--db-grey-900);
+  --db-red: var(--db-red-400); /* logo, Schwelle */
+  --db-red-ui: var(--db-red-500); /* links, UI on white */
+  --lilac: var(--db-lilac-200);
+  --s-bahn-green: var(--db-green-500);
+
+  /* light mode */
+  --db-background: var(--db-white);
+  --db-foreground: var(--db-black);
+  --db-headline: var(--cold-black);
+  --db-muted: var(--db-grey-600);
+  --db-border: var(--db-grey-100);
+  --db-surface: var(--db-grey-25);
+  --db-link: var(--db-red-ui);
+  --db-classification: var(--db-muted);
+  --db-logo: var(--db-red);
+  --db-schwelle: var(--db-red);
+  --db-schwelle-subtle: var(--db-grey-50);
+
+  /* motion */
+  --db-ease-primary: cubic-bezier(0.25, 0, 0.35, 1);
+  --db-ease-secondary: cubic-bezier(0, 0, 0.2, 1);
+  --db-duration: 0.4s;
+
+  /* grid (canvas is 980 x 552) */
+  --db-margin-x: 3rem;
+  --db-margin-y: 2.5rem;
+  --db-logo-height: 2.5rem;
+  --db-logo-height-cover: 4.5rem;
+
+  /* slidev */
+  --slidev-code-radius: 0;
+  --slidev-code-margin: 0.5rem 0;
+  --slidev-code-background: var(--db-surface);
+  --slidev-code-foreground: var(--db-foreground);
+  --slidev-code-tab-divider: var(--db-border);
+  --slidev-code-tab-text-color: var(--db-muted);
+  --slidev-code-tab-active-text-color: var(--db-foreground);
+  --slidev-transition-duration: var(--db-duration);
+  --slidev-slide-container-background: var(--db-grey-900);
+}
+
+/* dark mode */
+html.dark {
+  --db-background: var(--cold-black);
+  --db-foreground: var(--db-white);
+  --db-headline: var(--db-white);
+  --db-muted: var(--db-grey-300);
+  --db-border: var(--db-grey-700);
+  --db-surface: var(--db-grey-800);
+  --db-link: var(--db-red);
+  --db-classification: var(--db-muted);
+  --db-schwelle-subtle: var(--db-grey-800);
+  --slidev-code-background: var(--db-surface);
+  --slidev-code-foreground: var(--db-foreground);
+  --slidev-code-tab-divider: var(--db-border);
+  --slidev-code-tab-text-color: var(--db-muted);
+  --slidev-code-tab-active-text-color: var(--db-foreground);
+}
+
+/* inverted surface, used by the section layout */
+.db-inverted {
+  --db-background: var(--cold-black);
+  --db-foreground: var(--db-white);
+  --db-headline: var(--db-white);
+  --db-muted: var(--db-grey-300);
+  --db-border: var(--db-grey-700);
+  --db-surface: var(--db-grey-800);
+  --db-link: var(--db-red);
+  --db-schwelle-subtle: var(--db-grey-800);
+}
+
+html.dark .db-inverted {
+  --db-background: var(--db-white);
+  --db-foreground: var(--db-black);
+  --db-headline: var(--cold-black);
+  --db-muted: var(--db-grey-600);
+  --db-border: var(--db-grey-100);
+  --db-surface: var(--db-grey-25);
+  --db-link: var(--db-red-ui);
+  --db-schwelle-subtle: var(--db-grey-50);
+}

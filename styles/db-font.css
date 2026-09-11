@@ -1,15 +1,41 @@
+/* DB Neo Screen: "DB Screen Head" for headlines (Black = 900), "DB Screen Sans" for body copy */
+
 @font-face {
-    font-family: "DB Head";
-    src: url("../assets/fonts/DBNeoScreenHead-Regular-woff2-data.woff2") format("woff2");
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
+  font-family: "DB Screen Head";
+  src: url("../assets/fonts/DBNeoScreenHead-Light-woff2-data.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: "DB Head";
-    src: url("../assets/fonts/DBNeoScreenSans-Bold-woff2-data.woff2") format("woff2");
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
+  font-family: "DB Screen Head";
+  src: url("../assets/fonts/DBNeoScreenHead-Regular-woff2-data.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DB Screen Head";
+  src: url("../assets/fonts/DBNeoScreenHead-Black-woff2-data.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DB Screen Sans";
+  src: url("../assets/fonts/DBNeoScreenSans-Regular-woff2-data.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DB Screen Sans";
+  src: url("../assets/fonts/DBNeoScreenSans-Bold-woff2-data.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }

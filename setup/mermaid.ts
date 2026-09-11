@@ -2,13 +2,15 @@ import { defineMermaidSetup } from "@slidev/types";
 import { watch } from "vue";
 import { isDark } from "@slidev/client/logic/dark.ts";
 
-/* DB brand palette — kept in sync with styles/layout.css */
-const DB_RED = "#FF002B";
-const DB_RED_700 = "#9B000E";
-const DB_RED_300 = "#FA9090";
-const COLD_BLACK = "#090F1B";
-const LILAC = "#AA99FF";
+/* DB brand palette — see styles/tokens.css */
+const DB_RED = "#FF002B"; // DB Red 400
+const DB_RED_700 = "#9E000F";
+const DB_RED_300 = "#FA4A59";
+const COLD_BLACK = "#090F1B"; // Grey 900
+const LILAC = "#AA99FF"; // Lilac 200
 const WHITE = "#FFFFFF";
+const GREY_100 = "#C9CCD2";
+const GREY_700 = "#454D5D";
 
 /**
  * Theme variables for a light slide (plain white background): dark,
@@ -32,7 +34,7 @@ const lightThemeVariables = {
   tertiaryTextColor: WHITE,
   tertiaryBorderColor: DB_RED_700,
   clusterBkg: WHITE,
-  clusterBorder: COLD_BLACK,
+  clusterBorder: GREY_100,
   edgeLabelBackground: LILAC,
 };
 
@@ -58,7 +60,7 @@ const darkThemeVariables: typeof lightThemeVariables = {
   tertiaryTextColor: COLD_BLACK,
   tertiaryBorderColor: DB_RED_300,
   clusterBkg: COLD_BLACK,
-  clusterBorder: WHITE,
+  clusterBorder: GREY_700,
   edgeLabelBackground: LILAC,
 };
 
@@ -93,5 +95,6 @@ export default defineMermaidSetup(() => {
   return {
     theme: "base",
     themeVariables,
+    fontFamily: '"DB Screen Sans", system-ui, sans-serif',
   };
 });

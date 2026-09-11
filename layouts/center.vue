@@ -5,7 +5,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <DbSlide layout="default" :class="props.class">
+  <DbSlide layout="center" :class="props.class" center>
     <slot />
   </DbSlide>
 </template>

@@ -1,79 +1,287 @@
 @import "db-font.css";
 
-:root {
-  /* default theme color */
-  /* can be overrided by uses `themeConfig` option */
-  --cold-black: #090F1B;
-  --db-red: #FF002B;
-  --db-red-700: #9B000E;
-  --db-red-300: #FA9090;
-  --lilac: #AA99FF;
-  --s-bahn-green: #408335;
-
-  /* Surface + text tokens — light mode (default).
-     Dark mode inverts them, see `html.dark` below.
-     The active mode is driven by Slidev's `colorSchema` headmatter
-     option (`light` | `dark` | `auto`); `auto` shows a toggle in the
-     navigation bar and follows the OS preference. */
-  --db-background: #FFFFFF;
-  --db-foreground: var(--cold-black);
-
-  /* Colour of the confidentiality classification marker (see
-     global-top.vue). Lighter red on the white light-mode background. */
-  --db-classification: var(--db-red-300);
-}
-
-html.dark {
-  /* dark mode — inverted surface + text */
-  --db-background: var(--cold-black);
-  --db-foreground: #FFFFFF;
-
-  /* darker red against the cold-black dark-mode background */
-  --db-classification: var(--db-red-700);
-}
-
-/* `.slidev-page` wraps every slide (including the custom `cover` /
-   `default` layouts that don't emit `.slidev-layout`), so painting the
-   background and font colour here covers all layouts consistently. */
+/* surfaces (.slidev-page also covers layouts without .slidev-layout) */
 .slidev-page,
 .slidev-layout {
   background-color: var(--db-background);
   color: var(--db-foreground);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color var(--db-duration) var(--db-ease-primary),
+    color var(--db-duration) var(--db-ease-primary);
 }
 
-div {
-  font-family: "DB Head", serif;
+/* grid + typography */
+
+.slidev-layout {
+  position: relative;
+  overflow: hidden; /* Schwelle bleeds to the edge */
+  padding: var(--db-margin-y) var(--db-margin-x);
+  font-family: "DB Screen Sans", system-ui, sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.3;
 }
+
+/* headlines: Screen Head Black, 1.1 line height */
+.slidev-layout :is(h1, h2, h3, h4, h5, h6) {
+  font-family: "DB Screen Head", "DB Screen Sans", system-ui, sans-serif;
+  font-weight: 900;
+  line-height: 1.1;
+  color: var(--db-headline);
+  letter-spacing: 0;
+  text-transform: none;
+  opacity: 1;
+  margin: 0 0 0.6em;
+}
+
+.slidev-layout h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.slidev-layout h2 {
+  font-size: 1.75rem;
+  margin-top: 1.25rem;
+}
+
+.slidev-layout h3 {
+  font-size: 1.375rem;
+  margin-top: 1rem;
+}
+
+.slidev-layout h4 {
+  font-size: 1.125rem;
+}
+
+.slidev-layout h5 {
+  font-size: 1rem;
+}
+
+.slidev-layout h6 {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--db-muted);
+}
+
+.slidev-layout h6:not(.opacity-100) {
+  opacity: 1;
+}
+
+.slidev-layout p {
+  margin: 0.75rem 0;
+  line-height: 1.3;
+}
+
+.slidev-layout ul {
+  list-style: square;
+}
+
+.slidev-layout ol {
+  list-style: decimal;
+}
+
+.slidev-layout li {
+  line-height: 1.3;
+  margin-top: 0.35rem;
+  margin-bottom: 0.35rem;
+}
+
+.slidev-layout li::marker {
+  color: var(--db-headline);
+}
+
+.slidev-layout :is(b, strong) {
+  font-weight: 700;
+}
+
+/* red only for links, underline as second cue */
+.slidev-layout a {
+  color: var(--db-link);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+  text-decoration-thickness: 1px;
+  border: none;
+}
+
+.slidev-layout a:hover {
+  color: var(--db-link);
+  text-decoration-thickness: 2px;
+}
+
+/* elements: no radius, no shadows */
+
+.slidev-layout blockquote {
+  margin: 1rem 0;
+  padding: 0.25rem 0 0.25rem 1rem;
+  border-left: 4px solid var(--db-red);
+  border-radius: 0;
+  background: none;
+  color: var(--db-foreground);
+  font-size: 1em;
+}
+
+.slidev-layout blockquote > * {
+  margin: 0;
+}
+
+.slidev-layout code {
+  font-family: "Fira Code", ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.9em;
+  padding: 0.1em 0.35em;
+  border-radius: 0;
+  background: var(--db-surface);
+}
+
+.slidev-layout pre code {
+  padding: 0;
+  font-size: inherit;
+  background: none;
+}
+
+.slidev-layout :is(.slidev-code, .slidev-code-wrapper, pre.shiki) {
+  border-radius: 0 !important;
+  box-shadow: none;
+}
+
+.slidev-layout kbd {
+  font-family: "Fira Code", ui-monospace, monospace;
+  font-size: 0.8em;
+  padding: 0.1em 0.4em;
+  border: 1px solid var(--db-border);
+  border-bottom-width: 2px;
+  border-radius: 0;
+  background: var(--db-surface);
+}
+
+.slidev-layout table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.slidev-layout tr {
+  border: none;
+}
+
+.slidev-layout th {
+  text-align: left;
+  font-weight: 700;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 2px solid var(--db-foreground);
+}
+
+.slidev-layout td {
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid var(--db-border);
+}
+
+.slidev-layout :is(img, video, iframe) {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.slidev-layout hr {
+  margin: 1.25rem 0;
+  border: 0;
+  border-top: 1px solid var(--db-border);
+}
+
+/* text on images */
+
+.db-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.db-overlay--darken .db-overlay {
+  background: rgba(9, 15, 27, 0.55);
+}
+
+.db-overlay--dark-gradient .db-overlay {
+  background: linear-gradient(
+    90deg,
+    rgba(9, 15, 27, 0.85) 0%,
+    rgba(9, 15, 27, 0.5) 50%,
+    rgba(9, 15, 27, 0.1) 100%
+  );
+}
+
+.db-overlay--dark-gradient.db-align--right .db-overlay {
+  background: linear-gradient(
+    270deg,
+    rgba(9, 15, 27, 0.85) 0%,
+    rgba(9, 15, 27, 0.5) 50%,
+    rgba(9, 15, 27, 0.1) 100%
+  );
+}
+
+.db-overlay--light-gradient .db-overlay {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.92) 0%,
+    rgba(255, 255, 255, 0.6) 50%,
+    rgba(255, 255, 255, 0.15) 100%
+  );
+}
+
+.db-overlay--light-gradient.db-align--right .db-overlay {
+  background: linear-gradient(
+    270deg,
+    rgba(255, 255, 255, 0.92) 0%,
+    rgba(255, 255, 255, 0.6) 50%,
+    rgba(255, 255, 255, 0.15) 100%
+  );
+}
+
+/* text on top of an image */
+.db-on-image {
+  --db-foreground: var(--db-white);
+  --db-headline: var(--db-white);
+  --db-muted: var(--db-grey-100);
+  --db-link: var(--db-white);
+  color: var(--db-foreground);
+}
+
+.db-overlay--light-gradient.db-on-image {
+  --db-foreground: var(--db-black);
+  --db-headline: var(--cold-black);
+  --db-muted: var(--db-grey-700);
+  --db-link: var(--db-red-ui);
+}
+
+/* motion */
+
+.slidev-vclick-target {
+  transition: all var(--db-duration) var(--db-ease-primary);
+}
+
+/* slide transition, theme default: db-slide | db-slide-back */
+.db-slide-enter-active,
+.db-slide-leave-active,
+.db-slide-back-enter-active,
+.db-slide-back-leave-active {
+  transition:
+    translate var(--db-duration) var(--db-ease-primary),
+    opacity var(--db-duration) var(--db-ease-secondary);
+}
+
+.db-slide-enter-from,
+.db-slide-back-leave-to {
+  translate: 6% 0;
+  opacity: 0;
+}
+
+.db-slide-leave-to,
+.db-slide-back-enter-from {
+  translate: -6% 0;
+  opacity: 0;
+}
+
+/* slidev ui */
 
 #slidev-goto-dialog .autocomplete-list {
   display: none;
 }
+
 #slidev-goto-dialog:not(.-top-20) .autocomplete-list {
   display: block;
 }
-h1 {
-  @apply text-6xl leading-20;
-  font-weight: bold;
-  font-family: "DB Head", serif;
-}
-
-.slidev-layout.cover,
-.slidev-layout.intro {
-  @apply h-full grid;
-  h1 {
-    @apply text-6xl leading-20;
-  }
-
-  h1 + p {
-    @apply -mt-2 opacity-50 mb-4;
-  }
-
-  p + h2,
-  ul + h2,
-  table + h2 {
-    @apply mt-10;
-  }
-}
-
-
