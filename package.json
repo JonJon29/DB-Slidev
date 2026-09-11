@@ -42,7 +42,8 @@
         "logoColor": "red",
         "schwelle": true,
         "footer": "",
-        "pageNumbers": true
+        "pageNumbers": true,
+        "progress": false
       },
       "transition": "db-slide | db-slide-back"
     }

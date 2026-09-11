@@ -72,6 +72,8 @@
   --db-logo: var(--db-red);
   --db-schwelle: var(--db-red);
   --db-schwelle-subtle: var(--db-grey-50);
+  --db-progress-upcoming: var(--db-grey-100);
+  --db-progress-marker: var(--db-grey-200);
 
   /* motion */
   --db-ease-primary: cubic-bezier(0.25, 0, 0.35, 1);
@@ -83,6 +85,10 @@
   --db-margin-y: 2.5rem;
   --db-logo-height: 2.5rem;
   --db-logo-height-cover: 4.5rem;
+  --db-progress-height: 0.75rem;
+  --db-progress-step: 0.6rem; /* per slide */
+  --db-progress-width: 16rem;
+  --db-progress-min: 1.5px;
 
   /* slidev */
   --slidev-code-radius: 0;
@@ -107,6 +113,8 @@ html.dark {
   --db-link: var(--db-red);
   --db-classification: var(--db-muted);
   --db-schwelle-subtle: var(--db-grey-800);
+  --db-progress-upcoming: var(--db-grey-700);
+  --db-progress-marker: var(--db-grey-500);
   --slidev-code-background: var(--db-surface);
   --slidev-code-foreground: var(--db-foreground);
   --slidev-code-tab-divider: var(--db-border);

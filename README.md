@@ -38,6 +38,7 @@ themeConfig:
   schwelle: true              # Schwelle on content slides: true | false | subtle | lilac | white
   footer: ""                  # footer text, bottom-left of content slides
   pageNumbers: true           # "3 / 21" next to the footer text
+  progress: false             # true: progress strip instead of the Schwelle on content slides
   primary: "#EC0016"          # Slidev's primary colour (DB Red 500)
 transition: db-slide | db-slide-back   # theme default; use `fade`, `none`, … to override
 ---
@@ -50,6 +51,7 @@ Per slide, the frontmatter can switch the frame elements off or change them:
 logo: false          # no logo on this slide
 schwelle: subtle     # grey Schwelle (or false | lilac | white | red)
 footer: false        # no footer / page number (or a string for this slide only)
+progress: true       # progress strip instead of the Schwelle on this slide
 ---
 ```
 
@@ -89,7 +91,8 @@ so the marker uses the muted grey token `--db-classification`, which reaches
 ## Layouts
 
 Content layouts share one frame (`components/DbSlide.vue`): logo top-right,
-footer with page number bottom-left, S-variant Schwelle bottom-right.
+footer with page number bottom-left, S-variant Schwelle bottom-right (or the
+progress strip, see `DbProgress`).
 
 | Layout | Use | Options (frontmatter) |
 | --- | --- | --- |
@@ -160,6 +163,23 @@ plus 0.05 s per bar. `cover`, `section` and `end` expose this as the
 `height` (default `--db-logo-height`), `color` (`auto` | `red` | `white`),
 `additive` (overrides `themeConfig.sender`).
 
+### `<DbProgress>`
+
+Deck progress after the "Feedback / Live-Interaktion" pattern on the Motion
+Branding page: one thin bar per slide, the bars around the current slide grow
+around their centre with a linear falloff over four neighbours, a small grey
+marker sits above the current one. Passed slides are DB Red, upcoming ones
+grey. On a slide change the pointer travels from the previous slide to the
+new one, the bars bulge as it passes and the passed ones turn red, with the
+timing of the clip (about 0.13 s per bar, at least 0.5 s, eased in and out).
+Hovering moves the pointer with the mouse, like the clip, and shows the slide
+number and title; a click goes to that slide.
+Opt in with `themeConfig.progress: true` (or `progress: true` on a slide): it
+then takes the place of the small Schwelle bottom-right on the content slides. Props `current` and `total` override the deck values, e.g.
+`<DbProgress :current="7" :total="20" />`.
+Sizes come from `--db-progress-height`, `--db-progress-step`,
+`--db-progress-width`.
+
 ### `<DbSlide>`
 
 The frame used by the content layouts. Wrap your own layout in it to get
@@ -225,6 +245,7 @@ Gap analysis against the DB Marketingportal
 - [x] Layouts: section, agenda, end, image with overlays, image-left / -right, two-cols, two-cols-header, quote, fact, statement, center
 - [x] One grid: `--db-margin-x/y`, logo and Schwelle frame the slide
 - [x] Footer with page number and footer text
+- [x] Deck progress strip after the "Feedback / Live-Interaktion" UI pattern (Motion Branding)
 - [x] No rounded corners, no shadows: code blocks, inline code, kbd, blockquote, images
 - [x] Links, tables, blockquotes, lists in a flat, angular DB style; `themeConfig.primary` = DB Red 500
 - [x] Code highlighting in DB colours (`setup/shiki.ts`), Mermaid palette on the official values

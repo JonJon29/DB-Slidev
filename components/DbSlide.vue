@@ -35,6 +35,9 @@ const footerText = computed(() =>
     : String(themeConfig.footer ?? ""),
 );
 const pageNumbers = computed(() => themeConfig.pageNumbers !== false);
+const showProgress = computed(
+  () => (frontmatter.progress ?? themeConfig.progress ?? false) === true,
+);
 const total = computed(() => $nav.value?.total ?? 0);
 </script>
 
@@ -58,8 +61,9 @@ const total = computed(() => $nav.value?.total ?? 0);
       <span v-if="footerText" class="db-slide__footer-text">{{ footerText }}</span>
       <span v-if="pageNumbers" class="db-slide__page">{{ $page }} / {{ total }}</span>
     </footer>
+    <DbProgress v-if="showProgress" class="db-slide__progress" />
     <Schwelle
-      v-if="schwelleColor"
+      v-else-if="schwelleColor"
       class="db-slide__schwelle"
       variant="s"
       height="1.25rem"
@@ -109,6 +113,12 @@ const total = computed(() => $nav.value?.total ?? 0);
   font-size: 0.75rem;
   line-height: 1;
   color: var(--db-muted);
+}
+
+.db-slide__progress {
+  position: absolute;
+  right: var(--db-margin-x);
+  bottom: 0.9rem;
 }
 
 .db-slide__schwelle {

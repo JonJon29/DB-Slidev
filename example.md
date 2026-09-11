@@ -12,6 +12,8 @@ classification: internal
 themeConfig:
   sender: Systel
   footer: DB Systel GmbH
+  # progress strip instead of the Schwelle on content slides
+  progress: true
 # Schwelle animation on the cover: in (build-up, default) | loop | none
 animation: loop
 ---
@@ -34,7 +36,7 @@ Max Mustermann
 - **Logo** – with configurable sender ("Logozusatz"), red or white
 - **Layouts** – cover, section, agenda, image, two columns, quote, fact, statement, end …
 - **Motion** – DB easing curves for slide transitions, clicks and the Schwelle build-up
-- **Dark mode**, classification marker, page numbers and footer
+- **Dark mode**, classification marker, page numbers, footer and a progress strip
 
 ---
 layout: agenda
