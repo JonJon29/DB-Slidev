@@ -4,7 +4,8 @@
   "type": "module",
   "keywords": [
     "slidev-theme",
-    "slidev"
+    "slidev",
+    "deutsche-bahn"
   ],
   "engines": {
     "node": ">=20.12.0"
@@ -26,9 +27,24 @@
     "colorSchema": "both",
     "defaults": {
       "fonts": {
-        "sans": "Nunito Sans",
-        "mono": "Fira Code"
-      }
+        "sans": "DB Screen Sans",
+        "serif": "DB Screen Head",
+        "mono": "Fira Code",
+        "local": [
+          "DB Screen Sans",
+          "DB Screen Head"
+        ]
+      },
+      "themeConfig": {
+        "primary": "#EC0016",
+        "sender": "",
+        "logo": true,
+        "logoColor": "red",
+        "schwelle": true,
+        "footer": "",
+        "pageNumbers": true
+      },
+      "transition": "db-slide | db-slide-back"
     }
   }
 }
