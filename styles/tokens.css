@@ -1,58 +1,58 @@
 :root {
-  --db-white: #FFFFFF;
+  --db-white: #ffffff;
   --db-black: #000000;
 
   /* grey, 900 = Cold Black */
-  --db-grey-25: #F4F4F6;
-  --db-grey-50: #E0E1E4;
-  --db-grey-100: #C9CCD2;
-  --db-grey-200: #A3A8B2;
-  --db-grey-300: #848B9A;
-  --db-grey-400: #767E8F;
-  --db-grey-500: #6B7282;
+  --db-grey-25: #f4f4f6;
+  --db-grey-50: #e0e1e4;
+  --db-grey-100: #c9ccd2;
+  --db-grey-200: #a3a8b2;
+  --db-grey-300: #848b9a;
+  --db-grey-400: #767e8f;
+  --db-grey-500: #6b7282;
   --db-grey-600: #596273;
-  --db-grey-700: #454D5D;
-  --db-grey-800: #262C38;
-  --db-grey-900: #090F1B;
+  --db-grey-700: #454d5d;
+  --db-grey-800: #262c38;
+  --db-grey-900: #090f1b;
 
   /* red, 400 = DB Red, 500 = UI red */
-  --db-red-25: #FEEFF0;
-  --db-red-50: #FFD7DC;
-  --db-red-100: #FDB7BF;
-  --db-red-200: #FC808C;
-  --db-red-300: #FA4A59;
-  --db-red-400: #FF002B;
-  --db-red-500: #EC0016;
-  --db-red-600: #C20012;
-  --db-red-700: #9E000F;
-  --db-red-800: #5F0009;
-  --db-red-900: #2A0000;
+  --db-red-25: #feeff0;
+  --db-red-50: #ffd7dc;
+  --db-red-100: #fdb7bf;
+  --db-red-200: #fc808c;
+  --db-red-300: #fa4a59;
+  --db-red-400: #ff002b;
+  --db-red-500: #ec0016;
+  --db-red-600: #c20012;
+  --db-red-700: #9e000f;
+  --db-red-800: #5f0009;
+  --db-red-900: #2a0000;
 
   /* lilac, 200 = brand lilac */
-  --db-lilac-25: #F5F2FF;
-  --db-lilac-50: #E4DBFF;
-  --db-lilac-100: #CCBEFF;
-  --db-lilac-200: #AA99FF;
-  --db-lilac-300: #8E80D4;
-  --db-lilac-400: #8174BF;
-  --db-lilac-500: #7569AC;
-  --db-lilac-600: #62588F;
-  --db-lilac-700: #4E4770;
-  --db-lilac-800: #2C283C;
-  --db-lilac-900: #100F15;
+  --db-lilac-25: #f5f2ff;
+  --db-lilac-50: #e4dbff;
+  --db-lilac-100: #ccbeff;
+  --db-lilac-200: #aa99ff;
+  --db-lilac-300: #8e80d4;
+  --db-lilac-400: #8174bf;
+  --db-lilac-500: #7569ac;
+  --db-lilac-600: #62588f;
+  --db-lilac-700: #4e4770;
+  --db-lilac-800: #2c283c;
+  --db-lilac-900: #100f15;
 
   /* green, 500 = S-Bahn */
-  --db-green-25: #E2F3E5;
-  --db-green-50: #D8EEDA;
-  --db-green-100: #CCE7CC;
-  --db-green-200: #BDDBB9;
-  --db-green-300: #8CBC80;
-  --db-green-400: #66A558;
+  --db-green-25: #e2f3e5;
+  --db-green-50: #d8eeda;
+  --db-green-100: #cce7cc;
+  --db-green-200: #bddbb9;
+  --db-green-300: #8cbc80;
+  --db-green-400: #66a558;
   --db-green-500: #408335;
-  --db-green-600: #2A7230;
-  --db-green-700: #165C27;
-  --db-green-800: #154A26;
-  --db-green-900: #0C3B1B;
+  --db-green-600: #2a7230;
+  --db-green-700: #165c27;
+  --db-green-800: #154a26;
+  --db-green-900: #0c3b1b;
 
   --cold-black: var(--db-grey-900);
   --db-red: var(--db-red-400); /* logo, Schwelle */
@@ -68,7 +68,7 @@
   --db-border: var(--db-grey-100);
   --db-surface: var(--db-grey-25);
   --db-link: var(--db-red-ui);
-  --db-classification: var(--db-muted);
+  --db-classification: var(--db-red-300);
   --db-logo: var(--db-red);
   --db-schwelle: var(--db-red);
   --db-schwelle-subtle: var(--db-grey-50);
@@ -111,7 +111,7 @@ html.dark {
   --db-border: var(--db-grey-700);
   --db-surface: var(--db-grey-800);
   --db-link: var(--db-red);
-  --db-classification: var(--db-muted);
+  --db-classification: var(--db-red-700);
   --db-schwelle-subtle: var(--db-grey-800);
   --db-progress-upcoming: var(--db-grey-700);
   --db-progress-marker: var(--db-grey-500);
