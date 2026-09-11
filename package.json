@@ -1,7 +1,14 @@
 {
-  "name": "slidev-theme-db-theme",
+  "name": "@jonjon29/slidev-theme-db-theme",
   "version": "0.0.0",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JonJon29/DB-Slidev.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "keywords": [
     "slidev-theme",
     "slidev",
