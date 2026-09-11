@@ -126,6 +126,7 @@ function onLeave() {
 }
 
 function onClick(e: MouseEvent) {
+  e.preventDefault();
   e.stopPropagation();
   const no = Math.round(toPos(e));
   hovering.value = false;
@@ -156,16 +157,22 @@ function onClick(e: MouseEvent) {
     </div>
     <div class="db-progress__marker" :style="{ left: `calc((${pos.toFixed(3)} - 0.5) * var(--db-progress-pitch))` }" />
     <div class="db-progress__bars">
-      <span
+      <a
         v-for="(bar, i) in bars"
         :key="i"
-        class="db-progress__bar"
-        :class="{ 'db-progress__bar--past': bar.past }"
-        :style="{
-          left: `calc((${i} + 0.5) * var(--db-progress-pitch))`,
-          width: `calc(var(--db-progress-min) + (var(--db-progress-max) - var(--db-progress-min)) * ${bar.grow.toFixed(3)})`,
-        }"
-      />
+        class="db-progress__cell"
+        :href="`#db-slide-${i + 1}`"
+        :aria-label="`Slide ${i + 1}`"
+        :style="{ left: `calc(${i} * var(--db-progress-pitch))` }"
+      >
+        <span
+          class="db-progress__bar"
+          :class="{ 'db-progress__bar--past': bar.past }"
+          :style="{
+            width: `calc(var(--db-progress-min) + (var(--db-progress-max) - var(--db-progress-min)) * ${bar.grow.toFixed(3)})`,
+          }"
+        />
+      </a>
     </div>
   </div>
 </template>
@@ -193,10 +200,20 @@ function onClick(e: MouseEvent) {
   inset: 0;
 }
 
+.db-progress__cell {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: var(--db-progress-pitch);
+  border: none;
+  text-decoration: none;
+}
+
 .db-progress__bar {
   position: absolute;
   top: 0;
   bottom: 0;
+  left: 50%;
   translate: -50% 0;
   background: var(--db-progress-upcoming);
   transition: background-color 0.15s var(--db-ease-secondary);
