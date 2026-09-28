@@ -36,6 +36,19 @@ const lightThemeVariables = {
   clusterBkg: WHITE,
   clusterBorder: GREY_100,
   edgeLabelBackground: LILAC,
+  // Sequence-diagram specific variables to align style with other diagrams
+  actorBkg: COLD_BLACK,
+  actorBorder: COLD_BLACK,
+  actorTextColor: WHITE,
+  actorLineColor: DB_RED,
+  sequenceMessageColor: DB_RED,
+  noteBkgColor: WHITE,
+  noteTextColor: COLD_BLACK,
+  sequenceNumberColor: GREY_100,
+  activationBkgColor: LILAC,
+  activationBorderColor: LILAC,
+  signalTextColor: COLD_BLACK,
+  signalColor: COLD_BLACK
 };
 
 /**
@@ -62,6 +75,19 @@ const darkThemeVariables: typeof lightThemeVariables = {
   clusterBkg: COLD_BLACK,
   clusterBorder: GREY_700,
   edgeLabelBackground: LILAC,
+  // Sequence-diagram specific variables to align style with other diagrams
+  actorBkg: WHITE,
+  actorBorder: WHITE,
+  actorTextColor: COLD_BLACK,
+  actorLineColor: DB_RED,
+  sequenceMessageColor: DB_RED,
+  noteBkgColor: COLD_BLACK,
+  noteTextColor: COLD_BLACK,
+  sequenceNumberColor: GREY_700,
+  activationBkgColor: LILAC,
+  activationBorderColor: LILAC,
+  signalTextColor: WHITE,
+  signalColor: COLD_BLACK
 };
 
 /**

@@ -1,6 +1,13 @@
 ---
 theme: ./
 title: DB Slidev Theme
+
+info: |
+  ## Slidev Starter Template
+  Presentation slides for developers.
+
+  Learn more at [Sli.dev](https://sli.dev)
+
 # Dark mode is configurable per presentation:
 #   auto  -> follow the OS setting, show a toggle in the nav bar (default here)
 #   light -> plain white background, black text
@@ -295,10 +302,27 @@ graph LR
 ```
 
 ---
+
+# Sequence Diagrams 
+
+```mermaid 
+sequenceDiagram
+            participant A as Sender
+            participant B as Empfänger
+
+            A->>B: Anfrage senden
+            activate B
+            B->>B: Anfrage verarbeiten
+            B-->>A: Antwort senden
+            deactivate B
+            A->>A: Verarbeitung fortsetzen
+```
+
+---
 layout: end
 ---
 
-# Vielen Dank
+# Vielen Dank 
 
 Max Mustermann
 
